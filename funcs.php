@@ -34,14 +34,10 @@ class zf_funcs{
 		//var_dump($r);
 		if($r!==''&&$r!==false){
 			$arr=json_decode($r,true);
-			if(($arr['status']??0) === 200){
-				if(($arr['result']??'')==='ok'){
-					return true;
-				}
-				//api error
-				return false;
+			if(($arr['result']??'') === 'ok'){
+				return true;
 			}else{
-				//connection error
+				//api error
 				return false;
 			}
 		}
